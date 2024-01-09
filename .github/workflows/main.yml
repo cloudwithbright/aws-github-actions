@@ -2,11 +2,7 @@ name: github actions demo
 on:
   push:
     branches:
-      - master
-      - dev
-      - stage
-      - upd
-      - preprod
+      - main
 jobs:
   Development:
     runs-on: ubuntu-latest
