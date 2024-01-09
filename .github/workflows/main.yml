@@ -20,4 +20,4 @@ jobs:
       - id: "B"
         name: Install packages
         run: |
-          echo "Hello World"
+          ./script.sh
