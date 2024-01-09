@@ -1,0 +1,27 @@
+name: github actions demo
+on:
+  push:
+    branches:
+      - master
+      - dev
+      - stage
+      - upd
+      - preprod
+jobs:
+  Development:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: app01
+    env:
+      Username: Bright Debrah Owusu
+      Location: Kasoa Bigman Town
+      Age: 109
+    steps:
+      - id: "A"
+        name: Checkout repository
+        uses: actions/checkout@v4
+      - id: "B"
+        name: Install packages
+        run: |
+          echo "Hello World"
