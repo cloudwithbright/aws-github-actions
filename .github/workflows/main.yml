@@ -4,6 +4,17 @@ on:
     branches:
       - master
       - main
+  workflow_dispatch:
+    inputs:
+      Environments:
+        type: choice
+        default: dev
+        options:
+          - dev
+          - stage
+          - prod
+          - preprod
+          - uat
 jobs:
   Development:
     runs-on: ubuntu-latest
