@@ -40,3 +40,4 @@ jobs:
         run: |
           echo "${{ needs.Development.outputs.Job_Id}}"
           echo "${{ vars.USERNAME }}"
+          echo "${{ secrets.PASSWORD1 }}"
