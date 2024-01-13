@@ -7,13 +7,6 @@ on:
 jobs:
   Development:
     runs-on: ubuntu-latest
-    env:
-      Name: "Owusu Bright Debrah"
-      Age: 990
-      Location: "Kasoa Bigman Town"
-      Email: ${{ contains('refs/heads/main', 'main') && 'bright@gmail.com' || 'owusu@gmail.com' }}
-      Contact: ${{ github.event_name == 'pull_request'}}
-      Display_Github: ${{toJson(github)}}
     defaults:
       run:
         working-directory: app01
