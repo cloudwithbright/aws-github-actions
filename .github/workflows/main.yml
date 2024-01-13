@@ -11,7 +11,7 @@ jobs:
       Name: "Owusu Bright Debrah"
       Age: 990
       Location: "Kasoa Bigman Town"
-      Email: ${{ github.ref == 'refs/heads/master' && 'It is master' || 'It is not' }}
+      Email: ${{ github.ref == 'refs/heads/main' && 'It is main' || 'It is not main' }}
     defaults:
       run:
         working-directory: app01
