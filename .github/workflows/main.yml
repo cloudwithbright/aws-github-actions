@@ -39,5 +39,7 @@ jobs:
         name: Display values from others
         run: |
           echo "${{ needs.Development.outputs.Job_Id}}"
-          echo "${{ vars.USERNAME }}"
-          echo "${{ secrets.PASSWORD1 }}"
+          echo "This is Username 1: ${{ vars.USERNAME }}"
+          echo "This is Username 2: ${{ vars.USERNAME2 }}"
+          echo "This is PASSWPRD 1: ${{ secrets.PASSWORD1 }}"
+          echo "This is PASSWORD 2: ${{ secrets.PASSWORD2 }}"
