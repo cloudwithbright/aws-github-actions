@@ -11,7 +11,8 @@ jobs:
       Name: "Owusu Bright Debrah"
       Age: 990
       Location: "Kasoa Bigman Town"
-      Email: ${{ contains('refs/heads/main', 'mai') && 'bright@gmail.com' || 'owusu@gmail.com' }}
+      Email: ${{ contains('refs/heads/main', 'main') && 'bright@gmail.com' || 'owusu@gmail.com' }}
+      Contact: ${{ github.event_name == 'pull_request'}}
     defaults:
       run:
         working-directory: app01
@@ -25,3 +26,6 @@ jobs:
           sh ./script.sh "${{ env.Name }}" ${{ env.Age }} "${{ env.Location }}" "${{env.Email}}"
         env:
           Location: "Nii Boi Town"
+      - id: "C"
+        name: Using Expressions
+        run: echo ${{ contains(env.Location, 'Town') }}
