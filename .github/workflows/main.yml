@@ -32,4 +32,4 @@ jobs:
           echo ${{ contains(env.Location, 'Town') }}
           echo ${{ startsWith(env.Location, 'Ka') }}
           echo ${{ endsWith(env.Location, 'wn') }}
-          echo ${{ format('My name is {0}. I am {1} years old', env.Name, env.Age) }}
+          echo ${{ format('My name is {0}.\n I am {1} years old\nMy Email is: {2}', env.Name, env.Age, env.Email) }}
