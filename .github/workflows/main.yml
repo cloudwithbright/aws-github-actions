@@ -18,4 +18,4 @@ jobs:
         name: Context tutorials
         env:
           CUSTOM_GITHUB: ${{ toJson(github) }}
-        run: echo ${{ toJson(github) }}
+        run: echo ${{ env.CUSTOM_GITHUB }}
