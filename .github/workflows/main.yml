@@ -15,22 +15,22 @@ jobs:
         name: Checkout Repository
         uses: actions/checkout@v4
       - id: "Github"
-        name: Context tutorials
+        name: Github
         env:
           CUSTOM_GITHUB: ${{ toJson(github) }}
         run: echo $CUSTOM_GITHUB
       - id: "Job"
-        name: Context tutorials
+        name: Job
         env:
           CUSTOM_GITHUB: ${{ toJson(job) }}
         run: echo $CUSTOM_GITHUB
       - id: "Steps"
-        name: Context tutorials
+        name: Steps
         env:
           CUSTOM_GITHUB: ${{ toJson(steps) }}
         run: echo $CUSTOM_GITHUB
       - id: "Runner"
-        name: Context tutorials
+        name: Tunner
         env:
           CUSTOM_GITHUB: ${{ toJson(runner) }}
         run: echo $CUSTOM_GITHUB
