@@ -21,4 +21,4 @@ jobs:
       - id: "B"
         name: Run bash script
         run: |
-          ./script.sh ${{ env.Name }} ${{ env.Age }} ${{ env.Location }}
+          sh ./script.sh ${{ env.Name }} ${{ env.Age }} ${{ env.Location }}
