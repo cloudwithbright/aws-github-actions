@@ -39,3 +39,4 @@ jobs:
         name: Display values from others
         run: |
           echo "${{ needs.Development.outputs.Job_Id}}"
+          echo "${{ vars.USERNAME }}"
