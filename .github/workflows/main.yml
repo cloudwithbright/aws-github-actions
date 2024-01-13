@@ -13,6 +13,7 @@ jobs:
       Location: "Kasoa Bigman Town"
       Email: ${{ contains('refs/heads/main', 'main') && 'bright@gmail.com' || 'owusu@gmail.com' }}
       Contact: ${{ github.event_name == 'pull_request'}}
+      Display_Github: ${{toJson(github)}}
     defaults:
       run:
         working-directory: app01
@@ -35,4 +36,4 @@ jobs:
           echo ${{ startsWith(env.Location, 'Ka') }}
           echo ${{ endsWith(env.Location, 'wn') }}
           echo ${{ format('My name is {0}.\n I am {1} years old\nMy Email is: {2}', env.Name, env.Age, env.Email) }}
-          echo ${{ toJson(github) }}
+          echo ${{ env.Display_Github }}
