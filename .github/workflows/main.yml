@@ -28,4 +28,7 @@ jobs:
           Location: "Nii Boi Town"
       - id: "C"
         name: Using Expressions
-        run: echo ${{ contains(env.Location, 'Town') }}
+        run: |
+          echo ${{ contains(env.Location, 'Town') }}
+          echo ${{ startsWith(env.Location, 'Ka') }}
+          echo ${{ endsWith(env.Location, 'wn') }}
