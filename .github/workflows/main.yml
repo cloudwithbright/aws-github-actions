@@ -38,4 +38,4 @@ jobs:
       - id: DisplayValueFromOthers
         name: Display values from others
         run: |
-          echo ${{ needs.Development.outputs.Job_Id}}
+          echo "${{ needs.Development.outputs.Job_Id}}"
