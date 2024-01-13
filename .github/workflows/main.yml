@@ -23,6 +23,6 @@ jobs:
         uses: actions/checkout@v4
       - id: "B"
         name: Context tutorials
-        run: "$CUSTOM_GITHUB"
         env:
           CUSTOM_GITHUB: ${{ toJson(github) }}
+        run: "$CUSTOM_GITHUB"
