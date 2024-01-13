@@ -33,4 +33,4 @@ jobs:
           echo ${{ startsWith(env.Location, 'Ka') }}
           echo ${{ endsWith(env.Location, 'wn') }}
           echo ${{ format('My name is {0}.\n I am {1} years old\nMy Email is: {2}', env.Name, env.Age, env.Email) }}
-          echo ${{ toJson(env.Contact) }}
+          echo ${{ toJson(job) }}
