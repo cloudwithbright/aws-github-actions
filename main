@@ -5,7 +5,13 @@ Expressions
 2. startsWith
 3. endsWith
 4. format
+5. success
+6. always
+7. cancelled
+8. failure
 
 Expressions to Go Back
 ======================
 1. Join
+2. toJason
+3. HashFile
