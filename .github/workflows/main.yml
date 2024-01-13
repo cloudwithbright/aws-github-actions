@@ -11,6 +11,7 @@ jobs:
       Name: "Owusu Bright Debrah"
       Age: 990
       Location: "Kasoa Bigman Town"
+      Email: ${{ github.ref == 'refs/heads/master' && 'It is master' || 'It is not' }}
     defaults:
       run:
         working-directory: app01
@@ -21,4 +22,6 @@ jobs:
       - id: "B"
         name: Run bash script
         run: |
-          sh ./script.sh "${{ env.Name }}" ${{ env.Age }} "${{ env.Location }}"
+          sh ./script.sh "${{ env.Name }}" ${{ env.Age }} "${{ env.Location }}" "${{env.Email}}"
+        env:
+          Location: "Nii Boi Town"
