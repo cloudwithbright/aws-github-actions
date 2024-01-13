@@ -1,24 +1,24 @@
-name: github actions demo
+name: Github Action Tutorials
 on:
   push:
     branches:
+      - master
       - main
 jobs:
   Development:
     runs-on: ubuntu-latest
+    env:
+      Name: "Owusu Bright Debrah"
+      Age: 990
+      Location: "Kasoa Bigman Town"
     defaults:
       run:
         working-directory: app01
-    env:
-      Username: "Bright Debrah Owusu"
-      Location: "Kasoa Bigman Town"
-      Age: 109
     steps:
       - id: "A"
-        name: Checkout repository
+        name: Checkout Repository
         uses: actions/checkout@v4
       - id: "B"
-        name: Display values
+        name: Run bash script
         run: |
-          chmod +x script.sh
-          ./script.sh ${{ env.Username }} ${{ env.Location }} ${{ env.Age }}
+          ./script.sh ${{ env.Name }} ${{ env.Age }} ${{ env.Location }}
