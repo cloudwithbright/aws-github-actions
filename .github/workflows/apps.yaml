@@ -1,4 +1,4 @@
-name: Github Actions Tutorials
+name: Apps
 on:
   workflow_dispatch:
 env:
@@ -11,8 +11,6 @@ jobs:
     defaults:
       run:
         working-directory: app01
-        shell: |
-          echo Global Job Run
     steps:
       - id: Checkout
         name: Checkout repository
