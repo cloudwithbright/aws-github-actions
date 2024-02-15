@@ -1,18 +1,56 @@
-from datetime import datetime
-
-# Replace these values with your birthdate
-birth_year = 2002
-birth_month = 7
-birth_day = 27
-
-# Create a datetime object for your birthdate
-birthdate = datetime(birth_year, birth_month, birth_day)
-
-# Get the day of the week (0 = Monday, 1 = Tuesday, ..., 6 = Sunday)
-day_of_week = birthdate.weekday()
-
-# List of days of the week
-days_of_week = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
-
-# Print the result
-print("You were born on a", days_of_week[day_of_week])
+name: Github Action Tutorials
+on:
+  push:
+    branches:
+      - master
+      - main
+  workflow_dispatch:
+    inputs:
+      Environments:
+        type: choice
+        default: dev
+        options:
+          - dev
+          - stage
+          - prod
+          - preprod
+          - uat
+jobs:
+  Development:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: app01
+    outputs:
+      Job_Id: "First Job"
+    steps:
+      - id: "A"
+        name: Checkout Repository
+        uses: actions/checkout@v4
+      - id: "Github"
+        name: Github
+        env:
+          CUSTOM_GITHUB: ${{ toJson(github) }}
+        run: echo $CUSTOM_GITHUB
+          
+  Stage:
+    runs-on: windows-latest
+    needs: Development
+    defaults:
+      run:
+        working-directory: app01
+    env:
+      Username: "Justice Owusu Boateng"
+      Password: "This is my current password"
+    steps:
+      - id: "ACheckoutRepo"
+        name: Checkout repo
+        uses: actions/checkout@v4
+      - id: DisplayValueFromOthers
+        name: Display values from others
+        run: |
+          echo "${{ needs.Development.outputs.Job_Id}}"
+          echo "This is Username 1: ${{ vars.USERNAME }}"
+          echo "This is Username 2: ${{ vars.USERNAME2 }}"
+          echo "This is PASSWPRD 1: ${{ secrets.PASSWORD1 }}"
+          echo "This is PASSWORD 2: ${{ secrets.PASSWORD2 }}"

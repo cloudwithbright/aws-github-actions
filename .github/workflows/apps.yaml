@@ -1,0 +1,42 @@
+name: Github Actions Tutorials
+on:
+  workflow_dispatch:
+env:
+  env1: dev
+  env2: stage
+  env3: prod
+jobs:
+  Global:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: app01
+        shell: |
+          echo Global Job Run
+    steps:
+      - id: Checkout
+        name: Checkout repository
+        uses: actions/checkout@v4
+      - id: DisplayEnvironment
+        name: Display environment
+        run: |
+          echo This is Global Environment
+  Development:
+    needs: 
+      - Global
+    runs-on: ubuntu-latest
+    env:
+      Username: Owusu Bright Debrah
+      Age: 980
+      Email: owusu@gmail.com
+    environment:
+      name: dev
+      url: https://www.google.com
+    steps:
+      - id: CheckOut
+        name: Check Out
+        uses: actions/checkout@v4
+      - id: DisplayEnvironment
+        name: Display Environment
+        run: |
+          echo This is Development Environment
